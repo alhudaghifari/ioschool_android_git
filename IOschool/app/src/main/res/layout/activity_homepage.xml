@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp30"
+        android:layout_marginRight="@dimen/dp30">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp5">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnMyScore"
+                    android:layout_width="130dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:layout_marginTop="@dimen/margin_top_button_home"
+                    android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                    android:background="@drawable/file_menu_score"
+                    android:adjustViewBounds="true"
+                     />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnMySchedule"
+                    android:layout_width="130dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="@dimen/margin_top_button_home"
+                    android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                    android:background="@drawable/file_menu_schedule"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnMyLibrary"
+                    android:layout_width="130dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="@dimen/margin_top_button_home"
+                    android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                    android:background="@drawable/file_menu_library"/>
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp5">
+
+            <ImageButton
+                android:id="@+id/btnMyNews"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="@dimen/margin_top_button_home"
+                android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                android:background="@drawable/file_menu_news"/>
+
+            <ImageButton
+                android:id="@+id/btnMyForum"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="@dimen/margin_top_button_home"
+                android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                android:background="@drawable/file_menu_forum"
+                />
+
+            <ImageButton
+                android:id="@+id/btnMyProfile"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="@dimen/margin_top_button_home"
+                android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                android:onClick="toProfile"
+                android:background="@drawable/file_menu_profile"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
