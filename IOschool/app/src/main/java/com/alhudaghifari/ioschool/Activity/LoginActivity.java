@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.alhudaghifari.ioschool.R;
@@ -33,7 +36,7 @@ import java.util.Map;
  */
 public class LoginActivity extends Activity {
     private static final String TAG = LoginActivity.class.getSimpleName();
-    private Button btnLogin;
+    private ImageButton btnLogin;
     private EditText inputUsername;
     private EditText inputPassword;
     private ProgressDialog pDialog;
@@ -43,11 +46,23 @@ public class LoginActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Window window = this.getWindow();
+
+        // clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+        // finally change the color
+        window.setStatusBarColor(this.getResources().getColor(R.color.blue_main_color));
         setContentView(R.layout.activity_login);
 
         inputUsername = (EditText) findViewById(R.id.usernameInput);
         inputPassword = (EditText) findViewById(R.id.passwordInput);
-        btnLogin = (Button) findViewById(R.id.email_sign_in_button);
+        btnLogin = (ImageButton) findViewById(R.id.email_sign_in_button);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
