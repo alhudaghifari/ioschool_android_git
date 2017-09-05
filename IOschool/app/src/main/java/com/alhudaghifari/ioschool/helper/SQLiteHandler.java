@@ -32,7 +32,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_NAMALENGKAP = "Namalengkap";
     private static final String KEY_USERNAME = "Username";
     private static final String KEY_ANGKATAN = "Angkatan";
-    private static final String KEY_IDSEKOLAH = "id_sekolah";
+    private static final String KEY_NAMASEKOLAH = "nama_sekolah";
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -46,7 +46,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + KEY_NAMALENGKAP + " TEXT,"
                 + KEY_USERNAME + " TEXT UNIQUE,"
                 + KEY_ANGKATAN + " INTEGER, "
-                + KEY_IDSEKOLAH + " INTEGER" + ")";
+                + KEY_NAMASEKOLAH + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
         Log.d(TAG, "Database tables created");
@@ -65,7 +65,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * Storing user details in database
      * */
-    public void addUser(String nis, String namalengkap, String username, String angkatan, String id_sekolah) {
+    public void addUser(String nis, String namalengkap, String username, String angkatan, String namasekolah) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -73,7 +73,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_NAMALENGKAP, namalengkap); // Name
         values.put(KEY_USERNAME, username); // Email
         values.put(KEY_ANGKATAN, angkatan); // angkatan
-        values.put(KEY_IDSEKOLAH, id_sekolah); // id sekolah
+        values.put(KEY_NAMASEKOLAH, namasekolah); // id sekolah
 
         // Inserting Row
         long id = db.insert(TABLE_USER, null, values);
@@ -98,7 +98,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             user.put("Namalengkap", cursor.getString(1));
             user.put("Username", cursor.getString(2));
             user.put("Angkatan", cursor.getString(3));
-            user.put("id_sekolah", cursor.getString(4));
+            user.put("nama_sekolah", cursor.getString(4));
         }
         cursor.close();
         db.close();

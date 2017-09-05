@@ -138,10 +138,10 @@ public class LoginActivity extends Activity {
                         String namalengkap = user.getString("Namalengkap");
                         String username = user.getString("Username");
                         String angkatan = user.getString("Angkatan");
-                        String id_sekolah = user.getString("id_sekolah");
+                        String namasekolah = user.getString("namasekolah");
 
                         // Inserting row in users table
-                        db.addUser(nis, namalengkap, username, angkatan, id_sekolah);
+                        db.addUser(nis, namalengkap, username, angkatan, namasekolah);
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,

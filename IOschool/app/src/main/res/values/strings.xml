@@ -27,13 +27,15 @@
     
     <!--Profile Page-->
     <string name="nama_sekolah">SMA 1 Pekalongan</string>
-    <string name="nama_siswa">Nama :</string>
-    <string name="nisn">NISN :</string>
-    <string name="kelas">Kelas :</string>
-    <string name="angkatan">Angkatan :</string>
+    <string name="nama_siswa">Nama</string>
+    <string name="Username">\@Username</string>
+    <string name="nisn">NISN</string>
+    <string name="kelas">Kelas</string>
+    <string name="angkatan">Angkatan</string>
     <string name="farhan">Ahmad Farhan Ghifari</string>
     <string name="nisnfarhan">2013001</string>
     <string name="kelasfarhan">XII IPA 1</string>
     <string name="angkatanfarhan">2013</string>
+    <string name="titik_dua">: </string>
     
 </resources>
