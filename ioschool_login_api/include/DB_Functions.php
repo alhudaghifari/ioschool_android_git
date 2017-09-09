@@ -54,7 +54,7 @@ class DB_Functions {
      */
     public function getUserByUsernameAndPassword($Username, $Password) {
 
-        $stmt = $this->conn->prepare("SELECT * FROM siswa WHERE Username = ?");
+        $stmt = $this->conn->prepare("SELECT NIS, Namalengkap, Username, Password, Angkatan, namasekolah from siswa JOIN sekolah on siswa.id_sekolah = sekolah.id_sekolah where Username = ?");
 
         $stmt->bind_param("s", $Username);
 
@@ -74,6 +74,37 @@ class DB_Functions {
             }
         } else {
             return NULL;
+        }
+    }
+
+    public function changePassword($Username, $OldPassword, $NewPassword) {
+        $stmt = $this->conn->prepare("SELECT Username, Password from siswa where Username = ?");
+
+        $stmt->bind_param("s", $Username);
+
+        if ($stmt->execute()) {
+            $user = $stmt->get_result()->fetch_assoc();
+            $stmt->close();
+
+            $pwd = $user['Password'];
+
+            // check for Password equality
+            if ($OldPassword == $pwd) {
+                // user authentication details are correct
+                $stmt = $this->conn->prepare("UPDATE siswa SET Password = ? WHERE Username = ? ");
+
+                $stmt->bind_param("ss", $NewPassword, $Username);
+
+                if ($stmt->execute()) {
+                    // $user = $stmt->get_result()->fetch_assoc();
+                    $stmt->close();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
         }
     }
 

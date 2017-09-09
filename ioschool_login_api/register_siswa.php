@@ -13,12 +13,12 @@ $response = array("error" => FALSE);
 
 
 //dummy
-$_POST['NIS'] = "2017002";
-$_POST['Namalengkap'] = "Tejo";
-$_POST['Username'] = "bb";
-$_POST['Password'] = "ww";
-$_POST['Angkatan'] = "2017";
-$_POST['id_sekolah'] = "1709030002";
+// $_POST['NIS'] = "2017002";
+// $_POST['Namalengkap'] = "Tejo";
+// $_POST['Username'] = "bb";
+// $_POST['Password'] = "ww";
+// $_POST['Angkatan'] = "2017";
+// $_POST['id_sekolah'] = "1709030002";
 
 if (isset($_POST['NIS']) && isset($_POST['Namalengkap']) && isset($_POST['Username']) && isset($_POST['Password']) && isset($_POST['Angkatan']) && isset($_POST['id_sekolah']) ) {
 

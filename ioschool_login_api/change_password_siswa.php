@@ -15,27 +15,27 @@ $response = array("error" => FALSE);
 // $_POST['Username'] = "bb";
 // $pwdd = md5("ww");
 // $pwddd = md5($pwdd);
-// $_POST['Password'] = $pwddd;
+// $_POST['OldPassword'] = $pwddd;
+// $pwdd = md5("bb");
+// $pwddd = md5($pwdd);
+// $_POST['NewPassword'] = $pwddd;
 
-if (isset($_POST['Username']) && isset($_POST['Password'])) {
+if (isset($_POST['Username']) && isset($_POST['OldPassword']) && isset($_POST['NewPassword'])) {
 
     // receiving the post params
     $Username = $_POST['Username'];
-    $Password = $_POST['Password'];
+    $OldPassword = $_POST['OldPassword'];
+    $NewPassword = $_POST['NewPassword'];
     // echo $Username . " " . $Password;
 
 
     // get the user by Username and Password
-    $user = $db->getUserByUsernameAndPassword($Username, $Password);
+    // $user = $db->changePassword($Username, $OldPassword, $NewPassword);
 
-    if ($user != false) {
+    if ($db->changePassword($Username, $OldPassword, $NewPassword)) {
         // use is found
         $response["error"] = FALSE;
-        $response["NIS"] = $user["NIS"];
-        $response["user"]["Namalengkap"] = $user["Namalengkap"];
-        $response["user"]["Username"] = $user["Username"];
-        $response["user"]["Angkatan"] = $user["Angkatan"];
-        $response["user"]["namasekolah"] = $user["namasekolah"];
+        $response["msg"] = "Password updated";
         
         echo json_encode($response);
     } else {
