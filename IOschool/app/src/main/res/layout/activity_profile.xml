@@ -13,7 +13,7 @@
             android:layout_width="@dimen/dp180"
             android:layout_height="@dimen/dp180"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginTop="@dimen/dp10"
             android:padding="@dimen/dp25">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -26,7 +26,7 @@
 
             <ImageButton
                 android:id="@+id/imgBtnProfil"
-                android:src="@drawable/icon_white_3"
+                android:src="@drawable/icon_white_clicked_11"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:padding="0dp"
@@ -203,8 +203,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/sp18"
                         android:textColor="@color/black_text_2"
-                        android:text="@string/angkatan"
-                        android:layout_marginBottom="@dimen/margin_bottom_text"/>
+                        android:text="@string/angkatan"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -212,8 +211,7 @@
                         android:textSize="@dimen/sp18"
                         android:textColor="@color/black_text_2"
                         android:text="@string/titik_dua"
-                        android:layout_marginRight="@dimen/dp5"
-                        android:layout_marginBottom="@dimen/margin_bottom_text"/>
+                        android:layout_marginRight="@dimen/dp5"/>
 
                     <TextView
                         android:id="@+id/txtAngkatan"
@@ -221,14 +219,26 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/sp18"
                         android:textColor="@color/black_text_2"
-                        android:text="@string/angkatanfarhan"
-                        android:layout_marginBottom="@dimen/margin_bottom_text"/>
+                        android:text="@string/angkatanfarhan"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
+
+
+        <ImageButton
+            android:id="@+id/imgBtnLogout"
+            android:src="@drawable/file_button_logout"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="0dp"
+            android:layout_marginLeft="@dimen/dp25"
+            android:layout_marginTop="@dimen/dp15"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="wrap_content"
+            />
 
     </LinearLayout>
 

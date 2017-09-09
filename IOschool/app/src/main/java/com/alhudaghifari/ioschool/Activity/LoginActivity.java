@@ -73,14 +73,6 @@ public class LoginActivity extends Activity {
 
         // Session manager
         session = new SessionManager(getApplicationContext());
-//
-//        // Check if user is already logged in or not
-//        if (session.isLoggedIn()) {
-//            // User is already logged in. Take him to main activity
-//            Intent intent = new Intent(LoginActivity.this, HomePage.class);
-//            startActivity(intent);
-//            finish();
-//        }
 
         // Login button Click Event
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +149,7 @@ public class LoginActivity extends Activity {
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "maaf terjadi kesalahan", Toast.LENGTH_LONG).show();
                 }
 
             }

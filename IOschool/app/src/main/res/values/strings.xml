@@ -16,15 +16,16 @@
     </string>
 
     <string name="this_app">com.alhudaghifari.ioschool</string>
-    
+
     <!--Login Page-->
     <string name="login">Log In</string>
     <string name="login_as_teacher">Login as Teacher</string>
 
     <!--activity-->
     <string name="home">Main Menu</string>
-    <string name="profil">Profile</string>
-    
+    <string name="profil">Profil</string>
+    <string name="setting">Setting Profil</string>
+
     <!--Profile Page-->
     <string name="nama_sekolah">SMA 1 Pekalongan</string>
     <string name="nama_siswa">Nama</string>
@@ -37,5 +38,23 @@
     <string name="kelasfarhan">XII IPA 1</string>
     <string name="angkatanfarhan">2013</string>
     <string name="titik_dua">: </string>
-    
+
+    <!--menu source-->
+    <string name="menu_logout">Logout</string>
+    <string name="cancel">Tidak</string>
+    <string name="logout_title">Logout Profile</string>
+    <string name="logout_question">Anda yakin ingin Logout?</string>
+    <string name="sudah_logout">Anda telah logout</string>
+
+    <!--Setting Page-->
+    <string name="ubah">Ubah</string>
+    <string name="ubah_password">Ubah Password</string>
+    <string name="username">Username</string>
+    <string name="password_lama">Password Lama</string>
+    <string name="password_baru">Input Password Baru</string>
+    <string name="password_confirm">Konfirmasi Password</string>
+    <string name="false_pwd_konfirm">Password konfirmasi harus sama dengan password baru.</string>
+    <string name="judul_ubahpwd">Ubah Password</string>
+    <string name="text_ubahpwd">Anda yakin ingin mengubah password?</string>
+
 </resources>

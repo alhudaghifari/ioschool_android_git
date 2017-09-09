@@ -11,6 +11,8 @@
     <dimen name="margin_bottom_text">8dp</dimen>
 
     <dimen name="dp5">5dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
     <dimen name="dp25">25dp</dimen>
     <dimen name="dp30">30dp</dimen>
     <dimen name="dp40">40dp</dimen>

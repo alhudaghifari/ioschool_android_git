@@ -4,23 +4,45 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#61afea"
+    android:background="@color/white"
     tools:context="com.alhudaghifari.ioschool.Activity.Loading">
 
-    <ImageView
-        android:id="@+id/splashscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:text="splash screen"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/splashscreen_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/picture_header_log_in"
+            android:layout_alignParentTop="true"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/splashscreen_mid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/picture_logo_splash_screen"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/splashscreen_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/picture_footer"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

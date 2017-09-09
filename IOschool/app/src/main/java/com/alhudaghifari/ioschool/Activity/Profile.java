@@ -1,6 +1,8 @@
 package com.alhudaghifari.ioschool.Activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -9,8 +11,12 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,6 +27,7 @@ import com.alhudaghifari.ioschool.Constant;
 import com.alhudaghifari.ioschool.R;
 import com.alhudaghifari.ioschool.helper.ImageConverter;
 import com.alhudaghifari.ioschool.helper.SQLiteHandler;
+import com.alhudaghifari.ioschool.helper.SessionManager;
 
 import java.util.HashMap;
 
@@ -30,8 +37,11 @@ import java.util.HashMap;
 
 public class Profile extends AppCompatActivity {
 
+    private ActionBar aksibar;
+
     private ImageView imageViewProfil;
     private ImageButton imgBtnSelectPhotoProfil;
+    private ImageButton imgBtnLogout;
 
     private TextView txtNamaSiswa;
     private TextView txtNisn;
@@ -54,10 +64,14 @@ public class Profile extends AppCompatActivity {
     SharedPreferences.Editor editor;
     Context _context;
 
+    private SessionManager session;
+
     // Shared preferences file name
     private static final String PREF_NAME = Constant.this_app;
     private static final String KEY_IS_PROFPIC_SELECTED = "isProfpicSelected";
     private static final String KEY_URI_IMAGE = "uriImage";
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,14 +81,52 @@ public class Profile extends AppCompatActivity {
         this._context = Profile.this;
         pref = _context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
+        aksibar = Profile.this.getSupportActionBar();
+        assert aksibar != null;
+        aksibar.setDisplayHomeAsUpEnabled(true);
+        aksibar.setHomeAsUpIndicator(R.drawable.file_button_back);
+        aksibar.setTitle(R.string.profil);
+
         initializeView();
         initalizeListener();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_profile, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+
+                Profile.this.finish();
+                return true;
+
+            case R.id.action_setting:
+
+                gotoSettingPage();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void gotoSettingPage() {
+        Intent intentSetting = new Intent(Profile.this, SettingPage.class);
+        intentSetting.putExtra(Constant.TAG_USERNAME,  username);
+
+        Profile.this.startActivity(intentSetting);
     }
 
     private void initializeView() {
         imageViewProfil = (ImageView) findViewById(R.id.imgProfil);
         imgBtnSelectPhotoProfil = (ImageButton) findViewById(R.id.imgBtnProfil);
+        imgBtnLogout = (ImageButton) findViewById(R.id.imgBtnLogout);
 
         txtNamaSiswa = (TextView) findViewById(R.id.txtNamaSiswa);
         txtNisn = (TextView) findViewById(R.id.txtNisn);
@@ -103,7 +155,7 @@ public class Profile extends AppCompatActivity {
         txtTagKelas.setTypeface(custom_font);
         txtTagAngkatan.setTypeface(custom_font);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.icon_white_3);
+        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),R.drawable.icon_white_clicked_11);
         Bitmap circularBitmap = ImageConverter.getCircleImage(bitmap);
         imgBtnSelectPhotoProfil.setImageBitmap(circularBitmap);
 
@@ -121,6 +173,13 @@ public class Profile extends AppCompatActivity {
                 openGallery();
             }
         });
+
+        imgBtnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showConfirmationDialogToLogout();
+            }
+        });
     }
 
     private void setDataStudent() {
@@ -131,7 +190,7 @@ public class Profile extends AppCompatActivity {
 
         String nis = user.get("NIS");
         String namasiswa = user.get("Namalengkap");
-        String username = user.get("Username");
+        username = user.get("Username");
         String angkatan = user.get("Angkatan");
         String namasekolah = user.get("nama_sekolah");
 
@@ -160,6 +219,35 @@ public class Profile extends AppCompatActivity {
     private void openGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
+    }
+
+
+    private void showConfirmationDialogToLogout() {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.logout_question)
+                .setTitle(R.string.logout_title)
+                .setPositiveButton(R.string.menu_logout, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Session manager
+                        session = new SessionManager(getApplicationContext());
+                        session.setLogin(false);
+
+                        Intent intent = new Intent(Profile.this, LoginActivity.class);
+                        startActivity(intent);
+                        Profile.this.finish();
+
+                        showToast(getResources().getString(R.string.sudah_logout));
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // FIRE ZE MISSILES!
+                    }
+                });
+        // Create the AlertDialog object and return it
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

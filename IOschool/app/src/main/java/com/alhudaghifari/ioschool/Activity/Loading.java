@@ -28,7 +28,7 @@ public class Loading extends AppCompatActivity {
     //time in milliseconds
     private static final long SPLASHTIME = 2000;
 
-    private ImageView splash;
+    private ImageView splash_mid;
 
     private SessionManager session;
 
@@ -43,13 +43,13 @@ public class Loading extends AppCompatActivity {
             switch (msg.what) {
                 case GOTOLOGINPAGE:
                     //remove SplashScreen from view
-                    splash.setVisibility(View.GONE);
+                    splash_mid.setVisibility(View.GONE);
                     intentpindah = new Intent(Loading.this, LoginActivity.class);
                     Loading.this.startActivity(intentpindah);
                     Loading.this.finish();
                     break;
                 case GOTOHOMEPAGE:
-                    splash.setVisibility(View.GONE);
+                    splash_mid.setVisibility(View.GONE);
                     intentpindah = new Intent(Loading.this, HomePage.class);
                     Loading.this.startActivity(intentpindah);
                     Loading.this.finish();
@@ -80,7 +80,7 @@ public class Loading extends AppCompatActivity {
 
         setContentView(R.layout.activity_loading);
 
-        splash = (ImageView) findViewById(R.id.splashscreen);
+        splash_mid = (ImageView) findViewById(R.id.splashscreen_mid);
 
         // Session manager
         session = new SessionManager(getApplicationContext());
