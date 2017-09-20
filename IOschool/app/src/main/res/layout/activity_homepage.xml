@@ -35,6 +35,7 @@
                     android:layout_marginTop="@dimen/margin_top_button_home"
                     android:layout_marginBottom="@dimen/margin_bottom_button_home"
                     android:background="@drawable/file_menu_score"
+                    android:onClick="toScore"
                     android:adjustViewBounds="true"
                      />
 
@@ -54,6 +55,7 @@
                     android:adjustViewBounds="true"
                     android:layout_marginTop="@dimen/margin_top_button_home"
                     android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                    android:onClick="toSchedule"
                     android:background="@drawable/file_menu_schedule"
                     />
 
@@ -73,6 +75,7 @@
                     android:adjustViewBounds="true"
                     android:layout_marginTop="@dimen/margin_top_button_home"
                     android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                    android:onClick="toLibrary"
                     android:background="@drawable/file_menu_library"/>
 
             </RelativeLayout>
@@ -97,6 +100,7 @@
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 android:layout_marginTop="@dimen/margin_top_button_home"
+                android:onClick="toNews"
                 android:layout_marginBottom="@dimen/margin_bottom_button_home"
                 android:background="@drawable/file_menu_news"/>
 
@@ -104,13 +108,13 @@
                 android:id="@+id/btnMyForum"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-                android:layout_marginTop="@dimen/margin_top_button_home"
                 android:layout_marginBottom="@dimen/margin_bottom_button_home"
+                android:layout_marginTop="@dimen/margin_top_button_home"
+                android:layout_weight="1"
+                android:onClick="toForum"
+                android:adjustViewBounds="true"
                 android:background="@drawable/file_menu_forum"
-                />
+                android:scaleType="fitCenter" />
 
             <ImageButton
                 android:id="@+id/btnMyProfile"

@@ -72,7 +72,8 @@ public class SettingPage extends AppCompatActivity {
                 return true;
 
             case R.id.action_change_password:
-                showConfirmationChangePwd();
+                showToast("Password Changed");
+//                showConfirmationChangePwd();
                 return true;
         }
         return super.onOptionsItemSelected(item);

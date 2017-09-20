@@ -84,7 +84,8 @@ public class LoginActivity extends Activity {
                 // Check for empty data in the form
                 if (!username.isEmpty() && !password.isEmpty()) {
                     // login user
-                    checkLogin(username, password);
+                    loginWithoutAuthentication(username);
+//                    checkLogin(username, password);
                 } else {
                     // Prompt user to enter credentials
                     Toast.makeText(getApplicationContext(),
@@ -95,6 +96,43 @@ public class LoginActivity extends Activity {
 
         });
 
+    }
+
+    private void loginWithoutAuthentication(String usernameku) {
+        try {
+            boolean error = false;
+
+            // Check for error node in json
+            if (!error) {
+                // user successfully logged in
+                // Create login session
+                session.setLogin(true);
+
+                String nis = "2017001";
+                String namalengkap = "Farhan Ghifari";
+                String username = usernameku;
+                String angkatan = "2017";
+                String namasekolah = "SMA 1 Pekalongan";
+
+                // Inserting row in users table
+                db.addUser(nis, namalengkap, username, angkatan, namasekolah);
+
+                // Launch main activity
+                Intent intent = new Intent(LoginActivity.this,
+                        HomePage.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // Error in login. Get the error message
+                String errorMsg = "Mohon maaf terjadi kesalahan";
+                Toast.makeText(getApplicationContext(),
+                        errorMsg, Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            // JSON error
+            e.printStackTrace();
+            //Toast.makeText(getApplicationContext(), "maaf terjadi kesalahan", Toast.LENGTH_LONG).show();
+        }
     }
 
     /**

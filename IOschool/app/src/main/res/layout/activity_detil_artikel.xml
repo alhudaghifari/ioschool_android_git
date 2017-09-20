@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alhudaghifari.ioschool.Activity.DetilArtikel">
+
+
+    <ScrollView
+        android:id="@+id/setting_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/iv_gambarartikel"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/gambar1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:padding="0dp"
+                />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp20">
+
+                <TextView
+                    android:id="@+id/tv_judulartikel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp25"
+                    android:textStyle="bold"
+                    android:text="Judul artikel untuk detil artikel"/>
+
+                <TextView
+                    android:id="@+id/tv_subjudul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp13"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:text="Judul artikel untuk detil artikel"/>
+
+                <View
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/dp25"
+                    android:layout_marginRight="@dimen/dp25"
+                    android:background="@color/silver_icon_clicked"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:layout_marginBottom="@dimen/dp10"/>
+
+                <TextView
+                    android:id="@+id/tv_isiberita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp16"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:text="Judul artikel untuk detil artikel"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
